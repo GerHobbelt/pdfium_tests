@@ -1,0 +1,4 @@
+Can not judge the source from images and videos in "1_4_swf.pdf, 1_11_swf.pdf, 2_4_image.pdf, 4_0_image.pdf", so remove them.
+
+Add these files that contain image and video annotations.
+All the images and videos in these files are from Foxit employers and we can make sure there's no copyright issues.
