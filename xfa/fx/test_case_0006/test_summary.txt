@@ -1,0 +1,23 @@
+-Test process
+
+1. The test program inputs 2 in the first text field.
+
+2. The test program inputs 3 in the second text field.
+
+3. The test program inputs 4 in the third text field.
+
+-Pass condition
+
+1. The test program verifies the fourth text field has a value of 0
+
+AND
+
+2. The test program verifies the fourth text field has a value of 1 when the inputs are 2, 2, 4
+
+AND
+
+3. The test program verifies the fourth text field has a value of 1 when the inputs are 3, 3, null
+
+-Test purpose
+
+1. The logic is the first value is 1 only when there are at least 2 identical input values. The output logic is implemented by Adobe FormCalc script(described in Adobe FormCalc User Reference). This test aims to test Pdfium core’s correct interpretation of FormCalc script.

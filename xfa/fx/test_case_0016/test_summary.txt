@@ -1,0 +1,15 @@
+-Test process
+
+1. Test program checks the first checkbox
+
+2. Test program checks the second checkbox
+
+3. Test program checks the fifth checkbox
+
+-Pass condition
+
+1. The test program verifies the output image equals the input test image in every pixel
+
+-Test purpose
+
+1. This test aims to test XFA document being rendered correctly.

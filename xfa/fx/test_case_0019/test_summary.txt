@@ -1,0 +1,15 @@
+-Test process
+
+1. Test program runs.
+
+-Pass condition
+
+1. Test program verifies first text field contains the current system date.
+
+AND
+
+2. Test program verifies the second line contains the current system date in text
+
+-Test purpose
+
+1. This document is under the locale of en-US. The timing logic is implemented by Adobe FormCalc script(described in Adobe FormCalc User Reference). This test aims to test Pdfium core’s correct interpretation of FormCalc script.

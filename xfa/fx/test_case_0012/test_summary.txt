@@ -1,0 +1,31 @@
+-Test process
+
+1. Test program generates png images for all the pdf pages
+
+-Pass condition
+
+1. The test program verifies the first output image equals the first input test image in every pixel
+
+AND
+
+2. The test program verifies the second output image equals the second input test image in every pixel
+
+AND
+
+3. The test program verifies the third output image equals the third input test image in every pixel
+
+AND
+
+4. The test program verifies the forth output image equals the forth input test image in every pixel
+
+AND
+
+5. The test program verifies the fifth output image equals the fifth input test image in every pixel
+
+AND
+
+6. The test program verifies the sixth output image equals the sixth input test image in every pixel
+
+-Test purpose
+
+1. FormCalc language defines XFA templates. the XFA templates determines the order of page output. The output logic is implemented by Adobe FormCalc script(described in Adobe FormCalc User Reference). This test aims to test Pdfium core’s correct interpretation of FormCalc script.

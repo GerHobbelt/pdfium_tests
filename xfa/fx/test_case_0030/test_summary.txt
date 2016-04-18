@@ -1,0 +1,15 @@
+-Test process
+
+1. Test program inputs abcde into the first field.
+
+-Pass condition
+
+1. Test program verifies first text field contains abcde.
+
+AND
+
+2. Test program verifies output image equals the input test image in every pixel.
+
+-Test purpose
+
+1. This test aims to test text field's correct rendering in the XFA document.

@@ -1,0 +1,15 @@
+-Test process
+
+1. Test program enters 123 into the password field
+
+-Pass condition
+
+1. Test program verifies the second field contains 123 in text
+
+AND
+
+2. Test program verifies output image equals the input test image in every pixel.
+
+-Test purpose
+
+1. The password widget is implemented by Adobe FormCalc script(described in Adobe FormCalc User Reference). This test aims to test Pdfium core’s correct interpretation of FormCalc script.

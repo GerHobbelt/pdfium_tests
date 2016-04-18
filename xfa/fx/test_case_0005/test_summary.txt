@@ -1,0 +1,26 @@
+-Test process
+
+1. Test program simulates a mouseEnter event over the UI combination
+
+2. Test program simulates a mouseLeave event over the UI combination
+
+-Pass condition
+
+1. Test program verifies the external text field has a white background color and the internal text field has a light blue background color upon mouseEnter
+
+AND
+
+2. Test program verifies the external text field has a dark blue background color and the internal text field has a light blue background color upon mouseLeave
+
+AND
+
+
+3. The test program verifies the output image equals the first input test image in every pixel upon mouseEnter
+
+AND
+
+4. The test program verifies the output image equals the second input test image in every pixel upon mouseLeave
+
+-Test purpose
+
+1. The color changes are caused by the mouseEnter and mouseLeave events. This logic is implemented by Adobe FormCalc script(described in Adobe FormCalc User Reference). This test aims to test Pdfium core’s correct interpretation of FormCalc script.

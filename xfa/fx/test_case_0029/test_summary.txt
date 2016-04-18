@@ -1,0 +1,23 @@
+-Test process
+
+1. Test program enters Mary into the first text field
+
+2. Test program enters 12 into the second text field
+
+3. Test program hits the reset button
+
+-Pass condition
+
+1. Test program verifies the first field contains Lucy
+
+AND
+
+2. Test program verifies the first field contains 19
+
+AND
+
+3. Test program verifies output image equals the input test image in every pixel.
+
+-Test purpose
+
+1. The reset logic is implemented by Adobe FormCalc script(described in Adobe FormCalc User Reference). This test aims to test Pdfium core’s correct interpretation of FormCalc script.

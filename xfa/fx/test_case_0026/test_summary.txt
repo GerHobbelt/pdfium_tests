@@ -1,0 +1,15 @@
+-Test process
+
+1. Test program inputs 6.66 to the first text field.
+
+-Pass condition
+
+1. Test program verifies first text field contains the value of 6.66
+
+AND
+
+2. Test program verifies output image equals the input test image in every pixel.
+
+-Test purpose
+
+1. This test aims to test XFA widget's correct rendering of the double value.

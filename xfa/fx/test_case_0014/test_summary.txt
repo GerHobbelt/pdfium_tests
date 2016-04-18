@@ -1,0 +1,17 @@
+-Test process
+
+1. Test program inputs 2 to the first text field
+
+2. Test program inputs 3 to the second text field
+
+-Pass condition
+
+1. Test program verifies the third text field has a value of 5 500ms after the first 2 inputs
+
+AND
+
+2. The test program verifies the output image equals the input test image in every pixel
+
+-Test purpose
+
+1. This is an addition calculation. The output logic is implemented by Adobe FormCalc script(described in Adobe FormCalc User Reference). This test aims to test Pdfium core’s correct interpretation of FormCalc script.

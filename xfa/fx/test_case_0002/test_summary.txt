@@ -1,0 +1,17 @@
+-Test process
+
+1. Test program checks the first checkbox
+
+2. Test program generates a png image
+
+-Pass condition
+
+1. Test program verifies the second checkbox is checked 10ms after the first checkbox was checked
+
+AND
+
+2. The test program verifies the output image equals the input test image in every pixel
+
+-Test purpose
+
+1. The first checkbox and the second checkbox are data bonded. When either one is checked, the other one will be checked in turn. The output logic is implemented by Adobe FormCalc script(described in Adobe FormCalc User Reference). This test aims to test Pdfium core’s correct interpretation of FormCalc script.

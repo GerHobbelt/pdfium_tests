@@ -1,0 +1,11 @@
+-Test process
+
+1. Test program runs.
+
+-Pass condition
+
+1. Test program verifies first dropdown box contains the current system country.
+
+-Test purpose
+
+1. The country detection logic is implemented by Adobe FormCalc script(described in Adobe FormCalc User Reference). This test aims to test Pdfium core’s correct interpretation of FormCalc script.
