@@ -13,7 +13,7 @@ def _CheckPngNames(input_api, output_api):
   import re
   png_regex = re.compile('.+_expected(_(win|mac|linux))?\.pdf\.\d+.png')
   warnings = []
-  for f in input_api.AffectedFiles():
+  for f in input_api.AffectedFiles(include_deletes=False):
     local_path = f.LocalPath()
     if local_path.endswith('.png'):
       if not png_regex.match(local_path):
