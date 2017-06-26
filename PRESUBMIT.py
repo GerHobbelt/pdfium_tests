@@ -8,10 +8,21 @@ See http://dev.chromium.org/developers/how-tos/depottools/presubmit-scripts
 for more details about the presubmit API built into depot_tools.
 """
 
+def _CheckNoIn(input_api, output_api):
+  """Checks that corpus tests don't contain .in files. Corpus tests should be
+  .pdf files, having both can cause race conditions on the bots, which run the
+  tests in parallel.
+  """
+  results = []
+  for f in input_api.AffectedFiles(include_deletes=False):
+    if f.LocalPath().endswith('.in'):
+      results.append(output_api.PresubmitError(
+          'Remove %s since corpus tests should not use .in files' % f.LocalPath()))
+  return results
+
 def _CheckPngNames(input_api, output_api):
   """Checks that .png files have the right file name pattern"""
-  import re
-  png_regex = re.compile('.+_expected(_(win|mac|linux))?\.pdf\.\d+.png')
+  png_regex = input_api.re.compile('.+_expected(_(win|mac|linux))?\.pdf\.\d+.png')
   warnings = []
   for f in input_api.AffectedFiles(include_deletes=False):
     local_path = f.LocalPath()
@@ -26,8 +37,8 @@ def _CheckPngNames(input_api, output_api):
         warnings))
   return results
 
-
 def CheckChangeOnUpload(input_api, output_api):
   results = []
   results += _CheckPngNames(input_api, output_api)
+  results += _CheckNoIn(input_api, output_api)
   return results
