@@ -21,8 +21,14 @@ def _CheckNoIn(input_api, output_api):
   return results
 
 def _CheckPngNames(input_api, output_api):
-  """Checks that .png files have the right file name pattern"""
-  png_regex = input_api.re.compile('.+_expected(_(win|mac|linux))?\.pdf\.\d+.png')
+  """Checks that .png files have the right file name format, which must be in
+  the form of
+  NAME_expected(_(skia|skiapaths))?(_(win|mac|linux))?.pdf.#.png. This format
+  must be the same as the one used in PDFium's PRESUBMIT.py's
+  _CheckPNGFormat().
+  """
+  png_regex = input_api.re.compile(
+      r'.+_expected(_(skia|skiapaths))?(_(win|mac|linux))?\.pdf\.\d+.png')
   warnings = []
   for f in input_api.AffectedFiles(include_deletes=False):
     local_path = f.LocalPath()
