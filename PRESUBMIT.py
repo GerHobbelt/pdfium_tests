@@ -1,12 +1,15 @@
 # Copyright 2017 The PDFium Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
-
 """Presubmit script for PDFium testing corpus.
 
 See http://dev.chromium.org/developers/how-tos/depottools/presubmit-scripts
 for more details about the presubmit API built into depot_tools.
 """
+
+PRESUBMIT_VERSION = '2.0.0'
+
+USE_PYTHON3 = True
 
 def _CheckNoIn(input_api, output_api):
   """Checks that corpus tests don't contain .in files. Corpus tests should be
@@ -17,7 +20,8 @@ def _CheckNoIn(input_api, output_api):
   for f in input_api.AffectedFiles(include_deletes=False):
     if f.LocalPath().endswith('.in'):
       results.append(output_api.PresubmitError(
-          'Remove %s since corpus tests should not use .in files' % f.LocalPath()))
+          f'Remove {f.LocalPath()} since corpus tests should not use .in files'
+      ))
   return results
 
 def _CheckPngNames(input_api, output_api):
@@ -41,6 +45,15 @@ def _CheckPngNames(input_api, output_api):
     results.append(output_api.PresubmitPromptOrNotify(
         'The following PNG files have the wrong file name format:\n',
         warnings))
+  return results
+
+def ChecksCommon(input_api, output_api):
+  results = []
+
+  results.extend(
+      input_api.canned_checks.PanProjectChecks(
+          input_api, output_api, project_name='PDFium'))
+
   return results
 
 def CheckChangeOnUpload(input_api, output_api):
