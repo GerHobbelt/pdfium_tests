@@ -26,25 +26,23 @@ def _CheckNoIn(input_api, output_api):
 
 def _CheckPngNames(input_api, output_api):
   """Checks that .png files have the right file name format, which must be in
-  the form of
-  NAME_expected(_(skia|skiapaths))?(_(win|mac|linux))?.pdf.#.png. This format
-  must be the same as the one used in PDFium's PRESUBMIT.py's
-  _CheckPNGFormat().
-  """
-  png_regex = input_api.re.compile(
-      r'.+_expected(_(skia|skiapaths))?(_(win|mac|linux))?\.pdf\.\d+.png')
-  warnings = []
-  for f in input_api.AffectedFiles(include_deletes=False):
-    local_path = f.LocalPath()
-    if local_path.endswith('.png'):
-      if not png_regex.match(local_path):
-        warnings.append(local_path)
+  the form:
 
+  NAME_expected(_(agg|skia))?(_(linux|mac|win))?.pdf.\d+.png
+
+  This must be the same format as the one in PDFium's PRESUBMIT.py.
+  """
+  expected_pattern = input_api.re.compile(
+      r'.+_expected(_(agg|skia))?(_(linux|mac|win))?\.pdf\.\d+.png')
   results = []
-  if warnings:
-    results.append(output_api.PresubmitPromptOrNotify(
-        'The following PNG files have the wrong file name format:\n',
-        warnings))
+  for f in input_api.AffectedFiles(include_deletes=False):
+    if not f.LocalPath().endswith('.png'):
+      continue
+    if expected_pattern.match(f.LocalPath()):
+      continue
+    results.append(
+        output_api.PresubmitError(
+            'PNG file %s does not have the correct format' % f.LocalPath()))
   return results
 
 def ChecksCommon(input_api, output_api):
